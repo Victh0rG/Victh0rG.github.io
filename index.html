@@ -1,83 +1,113 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividades de Lógica de Programação</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            padding: 20px;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .atividade {
-            background: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Interações com Sistemas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    p {
+      color: #555;
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .agents {
+      text-align: left;
+      margin: 20px auto;
+      white-space: pre-line;
+      font-family: monospace;
+      background: #f0f0f0;
+      padding: 15px;
+      border-left: 4px solid #3498db;
+      border-radius: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    hr {
+      margin: 40px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-    <h1>Atividades de Lógica de Programação</h1>
+  <div class="container">
+    <h1>Sistemas de Interação</h1>
 
-    <div class="atividade">
-        <h2>Atividade 1 - Algoritmo do Sanduíche 🥪</h2>
-        <p><strong>Objetivo:</strong> Entender que um algoritmo é uma sequência de passos bem definidos.</p>
-        <p><strong>Instruções:</strong> Imagine que você vai ensinar um robô a fazer um sanduíche de presunto e queijo. Escreva um passo a passo bem detalhado, como se o robô não soubesse nada.</p>
+    <div class="section">
+      <h2>Sistema Bancário</h2>
+      <p>Demonstra as interações dos usuários (cliente, gerente) com o sistema.</p>
+      <div class="agents">
+        Cliente(realiza-transação) → Sistema Bancário(processa-transação) →<br>
+        Gerente(aprova-ou-bloqueia) → Sistema Bancário(executa) →<br>
+        Sistema Externo(processa-pagamento) → Sistema Bancário(retorna-status) →<br>
+        Cliente(recebe-confirmação)
+      </div>
+      <img src="https://github.com/user-attachments/assets/43640e95-0214-4a13-8306-f07850c54f0f" alt="Fluxo Bancário 1">
+      <img src="https://github.com/user-attachments/assets/dc5408a7-fef0-4e13-a192-f300042ab646" alt="Fluxo Bancário 2">
+      <img src="https://github.com/user-attachments/assets/631dc247-cfcb-4750-84e4-2c5bff399993" alt="Fluxo Bancário 3">
     </div>
 
-    <div class="atividade">
-        <h2>Atividade 2 - Siga a Sequência 🔢</h2>
-        <p><strong>Objetivo:</strong> Identificar padrões e criar sequências lógicas.</p>
-        <p>Observe as sequências abaixo e tente descobrir o próximo número ou padrão:</p>
-        <ul>
-            <li>2, 4, 6, 8, __ ?</li>
-            <li>1, 1, 2, 3, 5, 8, __ ?</li>
-            <li>10, 20, 40, 80, __ ?</li>
-        </ul>
+    <hr>
+
+    <div class="section">
+      <h2>Biblioteca</h2>
+      <p>Demonstra as interações dos usuários (cliente, gerente) com o sistema.</p>
+      <div class="agents">
+        Usuário(solicita-empréstimo) → Sistema(autentica-usuário) →<br>
+        Usuário(reserva-livro) → Sistema de Notificação(envia-confirmação-de-reserva) →<br>
+        Bibliotecário(registra-devolução) → Sistema de Notificação(envia-notificação-pendente) →<br>
+        Sistema de Notificação(envia-alerta-de-livro-disponível) → Usuário(recebe-alerta)
+      </div>
+      <img src="https://github.com/user-attachments/assets/c4d8d089-b10c-4b26-afdb-fa29ab145632" alt="Fluxo Biblioteca 1">
+      <img src="https://github.com/user-attachments/assets/8b8502c6-f5c0-4de3-9263-73ab55c05e48" alt="Fluxo Biblioteca 2">
     </div>
 
-    <div class="atividade">
-        <h2>Atividade 3 - Fluxograma do Dia 📍</h2>
-        <p><strong>Objetivo:</strong> Representar processos de forma visual.</p>
-        <p>Desenhe um fluxograma simples para representar seu dia desde que acorda até dormir.</p>
-    </div>
+    <hr>
 
-    <div class="atividade">
-        <h2>Atividade 4 - Jogo do Se e Então 🤔</h2>
-        <p><strong>Objetivo:</strong> Introduzir o conceito de condições (estrutura "se... então...").</p>
-        <p>Complete as frases abaixo usando "se" e "então" para criar regras lógicas:</p>
-        <ul>
-            <li>Se estiver chovendo, então ___________________.</li>
-            <li>Se a loja estiver fechada, então ___________________.</li>
-            <li>Se o semáforo estiver vermelho, então ___________________.</li>
-        </ul>
+    <div class="section">
+      <h2>Loja Online</h2>
+      <div class="agents">
+        Cliente(faz-login) → Sistema(autentica-usuário) →<br>
+        Cliente(busca-produto) → Sistema(exibe-produtos) →<br>
+        Cliente(adiciona-ao-carrinho) → Sistema(registra-itens) →<br>
+        Cliente(finaliza-compra) → Sistema de Pagamento(processa-pagamento) →<br>
+        Sistema(emite-recibo) → Cliente(acompanha-pedido)<br><br>
+        Administrador(faz-login) → Sistema(valida-acesso) →<br>
+        Administrador(cadastra-produto | gerencia-estoque)
+      </div>
+      <img src="https://github.com/user-attachments/assets/bf998d3a-63dd-44e4-b68c-159efd3e370e" alt="Fluxo Loja Online">
     </div>
-
-    <div class="atividade">
-        <h2>Atividade 5 - Histórias Condicionais 📖</h2>
-        <p><strong>Objetivo:</strong> Criar histórias usando a lógica condicional.</p>
-        <p>Complete as histórias a seguir usando "se... então...".</p>
-    </div>
-
-    <div class="atividade">
-        <h2>Atividade 6 - Missão Resgate 🚀</h2>
-        <p><strong>Objetivo:</strong> Criar regras para um jogo de resgate espacial usando "se... então...".</p>
-        <p>Defina três regras para um astronauta que precisa resgatar um colega perdido no espaço.</p>
-    </div>
-
-    <div class="atividade">
-        <h2>Atividade 7 - O Caminho Certo 🚦</h2>
-        <p><strong>Objetivo:</strong> Criar um algoritmo simples para um personagem atravessar a rua com segurança.</p>
-        <p>Complete os passos abaixo usando "se... então..." para definir as regras da travessia.</p>
-    </div>
+  </div>
 </body>
 </html>
-
