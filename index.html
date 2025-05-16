@@ -1,113 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Interações com Sistemas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yellow - Coldplay</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    audio {
+      margin: 20px 0;
     }
 
     .container {
-      max-width: 900px;
-      margin: 50px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       padding: 20px;
-      background-color: #ffffff;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
     }
 
-    h1, h2 {
-      color: #2c3e50;
+    .image-wrapper {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      transition: transform 0.3s ease;
     }
 
-    p {
-      color: #555;
-      font-size: 1.1em;
-      line-height: 1.6em;
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .section {
-      margin-bottom: 60px;
+    /* Efeito de aninhamento dinâmico ao passar o mouse */
+    .image-wrapper:hover {
+      transform: scale(1.1);
+      z-index: 10;
     }
 
-    .agents {
-      text-align: left;
-      margin: 20px auto;
-      white-space: pre-line;
-      font-family: monospace;
-      background: #f0f0f0;
-      padding: 15px;
-      border-left: 4px solid #3498db;
-      border-radius: 8px;
+    /* Animação sutil de pulsação */
+    .image-wrapper img {
+      animation: pulse 2s infinite ease-in-out;
     }
 
-    img {
-      max-width: 100%;
-      margin: 10px 0;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    }
-
-    hr {
-      margin: 40px 0;
-      border: none;
-      border-top: 1px solid #ddd;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Sistemas de Interação</h1>
+<!-- Player de áudio automático -->
+<!--<audio controls>-->
+<!--  <source src="u2.mp3" type="audio">-->
+<!--</audio>-->
+<iframe width="280" height="157" src="https://www.youtube.com/embed/yKNxeF4KMsY?si=PkhqdCoRnF7a4P7h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-    <div class="section">
-      <h2>Sistema Bancário</h2>
-      <p>Demonstra as interações dos usuários (cliente, gerente) com o sistema.</p>
-      <div class="agents">
-        Cliente(realiza-transação) → Sistema Bancário(processa-transação) →<br>
-        Gerente(aprova-ou-bloqueia) → Sistema Bancário(executa) →<br>
-        Sistema Externo(processa-pagamento) → Sistema Bancário(retorna-status) →<br>
-        Cliente(recebe-confirmação)
-      </div>
-      <img src="https://github.com/user-attachments/assets/43640e95-0214-4a13-8306-f07850c54f0f" alt="Fluxo Bancário 1">
-      <img src="https://github.com/user-attachments/assets/dc5408a7-fef0-4e13-a192-f300042ab646" alt="Fluxo Bancário 2">
-      <img src="https://github.com/user-attachments/assets/631dc247-cfcb-4750-84e4-2c5bff399993" alt="Fluxo Bancário 3">
-    </div>
 
-    <hr>
-
-    <div class="section">
-      <h2>Biblioteca</h2>
-      <p>Demonstra as interações dos usuários (cliente, gerente) com o sistema.</p>
-      <div class="agents">
-        Usuário(solicita-empréstimo) → Sistema(autentica-usuário) →<br>
-        Usuário(reserva-livro) → Sistema de Notificação(envia-confirmação-de-reserva) →<br>
-        Bibliotecário(registra-devolução) → Sistema de Notificação(envia-notificação-pendente) →<br>
-        Sistema de Notificação(envia-alerta-de-livro-disponível) → Usuário(recebe-alerta)
-      </div>
-      <img src="https://github.com/user-attachments/assets/c4d8d089-b10c-4b26-afdb-fa29ab145632" alt="Fluxo Biblioteca 1">
-      <img src="https://github.com/user-attachments/assets/8b8502c6-f5c0-4de3-9263-73ab55c05e48" alt="Fluxo Biblioteca 2">
-    </div>
-
-    <hr>
-
-    <div class="section">
-      <h2>Loja Online</h2>
-      <div class="agents">
-        Cliente(faz-login) → Sistema(autentica-usuário) →<br>
-        Cliente(busca-produto) → Sistema(exibe-produtos) →<br>
-        Cliente(adiciona-ao-carrinho) → Sistema(registra-itens) →<br>
-        Cliente(finaliza-compra) → Sistema de Pagamento(processa-pagamento) →<br>
-        Sistema-Bancario(emite-recibo) → Cliente(acompanha-pedido)<br><br>
-        Administrador(faz-login) → Sistema(valida-acesso) →<br>
-        Administrador(cadastra-produto  gerencia-estoque)
-      </div>
-      <img src="https://github.com/user-attachments/assets/bf998d3a-63dd-44e4-b68c-159efd3e370e" alt="Fluxo Loja Online">
-    </div>
+<!-- Contêiner com imagens -->
+<div class="container">
+  <div class="image-wrapper">
+    <img src="/me-you.jpg" alt="Imagem 1">
   </div>
+  <div class="image-wrapper">
+    <img src="/me-you1.jpg" alt="Imagem 2">
+  </div>
+  <div class="image-wrapper">
+    <img src="/you.jpg" alt="Imagem 3">
+  </div>
+  <div class="image-wrapper">
+    <img src="/you1.jpg" alt="Imagem 4">
+  </div>
+</div>
 </body>
 </html>
