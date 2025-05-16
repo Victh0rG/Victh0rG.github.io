@@ -15,6 +15,7 @@
       min-height: 100vh;
       background-color: #f0f0f0;
       font-family: Arial, sans-serif;
+      overflow: hidden; /* Evita barras de rolagem devido aos corações */
     }
 
     audio {
@@ -27,6 +28,8 @@
       justify-content: center;
       gap: 20px;
       padding: 20px;
+      position: relative;
+      z-index: 2; /* Garante que o conteúdo fique acima dos corações */
     }
 
     .image-wrapper {
@@ -60,9 +63,86 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+
+    /* Plano de fundo com corações animados */
+    .hearts-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Impede que os corações interfiram nos cliques */
+      z-index: 1; /* Fica atrás do conteúdo */
+    }
+
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4d4d;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4d4d;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -5px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-20vh) rotate(45deg) scale(1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Gera corações em posições aleatórias */
+    .heart:nth-child(2) { left: 10%; animation-delay: 0.5s; }
+    .heart:nth-child(3) { left: 20%; animation-delay: 1s; }
+    .heart:nth-child(4) { left: 30%; animation-delay: 1.5s; }
+    .heart:nth-child(5) { left: 40%; animation-delay: 2s; }
+    .heart:nth-child(6) { left: 50%; animation-delay: 2.5s; }
+    .heart:nth-child(7) { left: 60%; animation-delay: 3s; }
+    .heart:nth-child(8) { left: 70%; animation-delay: 3.5s; }
+    .heart:nth-child(9) { left: 80%; animation-delay: 4s; }
+    .heart:nth-child(10) { left: 90%; animation-delay: 4.5s; }
   </style>
 </head>
 <body>
+<!-- Plano de fundo com corações -->
+<div class="hearts-background">
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</div>
+
 <!-- Player de áudio automático -->
 <!--<audio controls>-->
 <!--  <source src="u2.mp3" type="audio">-->
